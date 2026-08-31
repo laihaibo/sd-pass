@@ -1,7 +1,8 @@
 <script setup>
 import { ref, computed, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { chapters, questions } from '../data'
+import { chapters } from '../data/chapters'
+import { questions } from '../data/questions'
 import { useRecordsStore } from '../stores/records'
 import { useWrongbookStore } from '../stores/wrongbook'
 import QuestionCard from '../components/QuestionCard.vue'

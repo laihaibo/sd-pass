@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { subjectives, subjectiveTypes } from '../data'
+import { subjectives, subjectiveTypes } from '../data/subjectives'
 import { useProgressStore } from '../stores/progress'
 import DiagramRenderer from '../components/DiagramRenderer.vue'
 

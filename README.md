@@ -13,17 +13,17 @@
 ## 本地开发
 
 ```bash
-npm install
-npm run dev      # 本地开发
-npm run build    # 产物输出到 dist/
-npm run preview  # 本地预览产物
+pnpm install
+pnpm dev      # 本地开发
+pnpm build    # 产物输出到 dist/
+pnpm preview  # 本地预览产物
 ```
 
 ## 部署到 GitHub Pages
 
 仓库已内置 `.github/workflows/deploy.yml`：
 
-1. 将代码推送到 GitHub 仓库 `main` 分支（首次需手动 `npm install && npm run build` 生成 package-lock.json，或者直接推送后由 Actions 执行 `npm install`）
+1. 将代码推送到 GitHub 仓库 `main` 分支（pnpm-lock.yaml 与 pnpm-workspace.yaml 需一并提交，CI 会用 `pnpm install --frozen-lockfile` 安装）
 2. 仓库 Settings → Pages → Source 选择 **GitHub Actions**
 3. push 到 main 后 GitHub Actions（Node 22）自动构建并部署，访问 `https://<用户名>.github.io/sd-pass/`
 

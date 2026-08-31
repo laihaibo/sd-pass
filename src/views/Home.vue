@@ -1,32 +1,46 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useProgressStore } from '../stores/progress'
 import { useRecordsStore } from '../stores/records'
 import { useWrongbookStore } from '../stores/wrongbook'
-import { chapters, questions, subjectives } from '../data'
 
 const progress = useProgressStore()
 const records = useRecordsStore()
 const wrongbook = useWrongbookStore()
 
-const modules = [
+// 首页只需要数据总量，用动态 import 后台加载：
+// 不阻塞首屏渲染，同时提前预热数据 chunk，点进子模块时秒开
+const chapterCount = ref(0)
+const questionCount = ref(0)
+const subjectiveCount = ref(0)
+Promise.all([
+  import('../data/chapters'),
+  import('../data/questions'),
+  import('../data/subjectives')
+]).then(([c, q, s]) => {
+  chapterCount.value = c.chapters.length
+  questionCount.value = q.questions.length
+  subjectiveCount.value = s.subjectives.length
+})
+
+const modules = computed(() => [
   {
     to: '/learn',
     icon: '📖',
     title: '知识学习',
-    desc: `${chapters.length} 章考纲知识，零基础深入浅出，配图解与考点归纳`
+    desc: `${chapterCount.value} 章考纲知识，零基础深入浅出，配图解与考点归纳`
   },
   {
     to: '/practice',
     icon: '✏️',
     title: '刷题练习',
-    desc: `${questions.length} 道客观题 · 章节练习 / 模拟考试 / 错题重练`
+    desc: `${questionCount.value} 道客观题 · 章节练习 / 模拟考试 / 错题重练`
   },
   {
     to: '/subjective',
     icon: '📝',
     title: '主观题精析',
-    desc: `${subjectives.length} 道下午卷例题，五段式拆解，教你快速得分`
+    desc: `${subjectiveCount.value} 道下午卷例题，五段式拆解，教你快速得分`
   },
   {
     to: '/progress',
@@ -34,7 +48,7 @@ const modules = [
     title: '进度与计划',
     desc: '备考倒计时 · 正确率分析 · 做题记录备份迁移'
   }
-]
+])
 
 const daysText = computed(() => {
   const d = progress.daysLeft
@@ -70,7 +84,7 @@ const daysText = computed(() => {
     <section class="mt-24">
       <div class="grid grid-4">
         <div class="card stat-card">
-          <div class="stat-value">{{ progress.readCount }}/{{ chapters.length }}</div>
+          <div class="stat-value">{{ chapterCount ? `${progress.readCount}/${chapterCount}` : '…' }}</div>
           <div class="stat-label">已学章节</div>
         </div>
         <div class="card stat-card">

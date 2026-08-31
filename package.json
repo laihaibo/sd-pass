@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "description": "软考中级软件设计师备考网站",
+  "packageManager": "pnpm@11.22.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate": "node scripts/validate-data.mjs"
   },
   "dependencies": {
     "pinia": "^2.2.6",

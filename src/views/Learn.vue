@@ -1,7 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { chapters, questions } from '../data'
+import { chapters } from '../data/chapters'
+import { questions } from '../data/questions'
 import { useProgressStore } from '../stores/progress'
 import DiagramRenderer from '../components/DiagramRenderer.vue'
 

@@ -1,6 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue'
-import { chapters, questions, subjectives } from '../data'
+import { chapters } from '../data/chapters'
+import { questions } from '../data/questions'
+import { subjectives } from '../data/subjectives'
 import { useProgressStore } from '../stores/progress'
 import { useRecordsStore } from '../stores/records'
 import { useWrongbookStore } from '../stores/wrongbook'

@@ -21,16 +21,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        # 版本读取 package.json 的 packageManager 字段，保证本地与 CI 一致
+
       - name: Setup Node 22
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate data
+        run: pnpm validate
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

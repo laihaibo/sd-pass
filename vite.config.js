@@ -6,6 +6,14 @@ export default defineConfig({
   base: './',
   plugins: [vue()],
   build: {
-    chunkSizeWarningLimit: 2000
+    chunkSizeWarningLimit: 2000,
+    rollupOptions: {
+      output: {
+        // 框架代码单独成包：内容更新时用户浏览器可继续缓存这部分（框架几乎不变）
+        manualChunks: {
+          vendor: ['vue', 'vue-router', 'pinia']
+        }
+      }
+    }
   }
 })
