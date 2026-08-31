@@ -1,4 +1,6 @@
 // 章节数据聚合：静态导入全部章节，供 Learn/Practice/Progress 等视图消费
+// ch00 为零基础前传（不配题），排在正式章节之前
+import ch00 from './chapters/ch00.js'
 import ch01 from './chapters/ch01.js'
 import ch02 from './chapters/ch02.js'
 import ch03 from './chapters/ch03.js'
@@ -14,4 +16,4 @@ import ch12 from './chapters/ch12.js'
 import ch13 from './chapters/ch13.js'
 import ch14 from './chapters/ch14.js'
 
-export const chapters = [ch01, ch02, ch03, ch04, ch05, ch06, ch07, ch08, ch09, ch10, ch11, ch12, ch13, ch14]
+export const chapters = [ch00, ch01, ch02, ch03, ch04, ch05, ch06, ch07, ch08, ch09, ch10, ch11, ch12, ch13, ch14]

@@ -113,6 +113,11 @@ const mockClock = computed(() => {
 const chapterQCount = computed(
   () => questions.filter((q) => q.chapterId === selectedChapter.value).length
 )
+// 章节下拉只列有配套题的章节（ch00 前传无题，不进入练习列表）
+const practiceChapters = computed(() => {
+  const withQuestions = new Set(questions.map((q) => q.chapterId))
+  return chapters.filter((ch) => withQuestions.has(ch.id))
+})
 </script>
 
 <template>
@@ -127,7 +132,7 @@ const chapterQCount = computed(
           <h3>📚 章节练习</h3>
           <p class="mode-desc">学完一章练一章，趁热打铁。</p>
           <select v-model="selectedChapter" class="mt-8">
-            <option v-for="ch in chapters" :key="ch.id" :value="ch.id">
+            <option v-for="ch in practiceChapters" :key="ch.id" :value="ch.id">
               {{ ch.title }}
             </option>
           </select>

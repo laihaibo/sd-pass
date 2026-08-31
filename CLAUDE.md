@@ -24,8 +24,8 @@ pnpm preview -- --port 4179  # 本地预览产物（默认 4173 可能被别的�
 **核心心智模型：所有学习内容是 `src/data/` 下的静态 JS 数组，被视图消费；状态（进度/错题/记录）存在 localStorage。**
 
 - 数据聚合分三个模块（**视图按需从这里导入，勿从 `index.js` 导入**，否则会把全部数据打进同一个 chunk）：
-  - `src/data/chapters.js` 导出 `chapters`（14 章）
-  - `src/data/questions.js` 导出 `questions`（728 题）
+  - `src/data/chapters.js` 导出 `chapters`（15 章：ch00 零基础前传 + ch01~ch14 正式章节；前传不配题，Learn.vue 据题数隐藏练习按钮、Practice.vue 下拉过滤无题章节）
+  - `src/data/questions.js` 导出 `questions`（728 题，不含前传）
   - `src/data/subjectives.js` 导出 `subjectives`（15 题）+ `subjectiveTypes`（5 题型）
   - `src/data/index.js` 仅 re-export 上述模块（供校验脚本等场景统一引用）
   - **新增第 N 章/新数据文件必须同步改对应聚合模块的 import 与导出。**

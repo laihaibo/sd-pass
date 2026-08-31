@@ -88,7 +88,8 @@ function splitParas(text) {
           <button class="btn btn-success" :disabled="isRead" @click="markLearned">
             {{ isRead ? '本章已学会' : '✓ 我学会了，标记完成' }}
           </button>
-          <button class="btn btn-primary" @click="goPractice">
+          <!-- 前传章节无配套题，隐藏练习入口 -->
+          <button v-if="qCount(current.id)" class="btn btn-primary" @click="goPractice">
             去练本章题（{{ qCount(current.id) }} 道）
           </button>
         </div>
