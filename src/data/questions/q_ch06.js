@@ -154,7 +154,7 @@ export default [
     id: 'q_ch06_013',
     chapterId: 'ch06',
     stem: '循环队列占用数组 Q[0..5]（容量 m=6），front 指向队头元素，rear 指向队尾元素的下一个空位。若 front=1、rear=4，则队列中元素个数为（ ）。',
-    options: [2, 4, 3, 5],
+    options: ['2', '4', '3', '5'],
     answer: 2,
     explanation:
       '解析：代入公式 n = (rear − front + m) mod m = (4−1+6) mod 6 = 3，选 C。直接相减 4−1=3 恰好同值，但若 rear 小于 front（如 front=4、rear=1）就必须加 m 再取模——这类题一律套公式最稳。',

@@ -1,0 +1,142 @@
+.wrap {
+  margin: 20px 0;
+  padding: 20px;
+  background: var(--fill);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.caption {
+  text-align: center;
+  color: var(--ink-3);
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+/* 层叠图 */
+.layers {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.layer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 16px;
+  border-radius: 11px;
+  font-size: 14px;
+  background: var(--blue-soft);
+}
+
+.layer[data-even] {
+  background: var(--orange-soft);
+}
+
+.layer span {
+  color: var(--ink-2);
+  font-weight: 400;
+  text-align: right;
+}
+
+/* 流程图 */
+.flow {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flowVertical {
+  flex-direction: column;
+  align-items: center;
+}
+
+.flowItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flowVertical .flowItem {
+  flex-direction: column;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 16px;
+  background: var(--glass-strong);
+  border: 1.5px solid color-mix(in srgb, var(--blue) 55%, transparent);
+  border-radius: 12px;
+  font-size: 13.5px;
+  text-align: center;
+  min-width: 92px;
+}
+
+.step span {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.arrow {
+  font-size: 19px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* 树形图 */
+.tree {
+  font-size: 14px;
+}
+
+.treeRow {
+  display: flex;
+  align-items: center;
+  padding: 3px 0;
+}
+
+.treeIndent {
+  flex: none;
+}
+
+.treeBranch {
+  color: var(--ink-3);
+  margin-right: 4px;
+}
+
+.treeNode strong {
+  background: var(--blue-soft);
+  padding: 2px 10px;
+  border-radius: 7px;
+}
+
+.treeNode span {
+  color: var(--ink-2);
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+/* SVG 图：内容为硬编码浅色配色的自绘图，故深浅主题下都放在白色「图版」上，
+   像 Apple 文档在深色模式下保留白底插图一样，保证图形原样可读 */
+.svg {
+  text-align: center;
+  background: #fcfdff;
+  border: 1px solid rgba(20, 25, 40, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+[data-theme='dark'] .svg {
+  background: #f2f3f7;
+  border-color: rgba(20, 25, 40, 0.15);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}

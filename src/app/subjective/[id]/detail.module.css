@@ -1,0 +1,139 @@
+.layout {
+  max-width: 860px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.article {
+  padding: 36px 40px;
+}
+
+.title {
+  font-size: clamp(23px, 3.2vw, 28px);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.stage {
+  margin-top: 30px;
+}
+
+.stageHead {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.stageNo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 9px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 3px 10px var(--blue-soft), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.stage:nth-of-type(4) .stageNo { background: var(--purple); }
+.stage:nth-of-type(5) .stageNo { background: var(--orange); }
+
+.para {
+  margin: 9px 0;
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+.scoreList {
+  padding-left: 22px;
+  font-size: 14.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scoreList li::marker {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.answerBox {
+  background: #fcfdff;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  font-size: 13.5px;
+  white-space: pre-wrap;
+  font-family: var(--font-mono);
+  line-height: 1.85;
+  overflow-x: auto;
+}
+
+[data-theme='dark'] .answerBox {
+  background: #f2f3f7;
+  color: #1d1d1f;
+  border-color: rgba(20, 25, 40, 0.15);
+}
+
+.actions {
+  border-top: 1px solid var(--hairline);
+  padding-top: 22px;
+  margin-top: 30px;
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.pagerBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 17px;
+  border-radius: var(--radius-md);
+  color: var(--ink);
+  max-width: 48%;
+}
+
+.pagerBtn small {
+  display: block;
+  font-size: 11.5px;
+  color: var(--ink-3);
+  margin-bottom: 2px;
+}
+
+.pagerBtn span {
+  font-size: 13.5px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pagerNext {
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .article {
+    padding: 26px 22px;
+  }
+
+  .pagerBtn span {
+    max-width: 130px;
+  }
+}

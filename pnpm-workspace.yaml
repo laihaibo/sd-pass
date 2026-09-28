@@ -1,5 +1,2 @@
-# pnpm 配置（pnpm 11 统一放在此文件，package.json 的 pnpm 字段已废弃）
-# 允许执行安装脚本：esbuild 安装平台二进制、vue-demi 切换 Vue 版本入口
-allowBuilds:
-  esbuild: true
-  vue-demi: true
+# pnpm 配置（pnpm 11 统一放在此文件）
+# Next.js 16 使用 SWC/Turbopack 二进制，无需 allowBuilds 白名单

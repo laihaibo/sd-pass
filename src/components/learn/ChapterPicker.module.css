@@ -1,0 +1,10 @@
+.wrap {
+  max-width: 420px;
+  flex: 1;
+  min-width: 0;
+}
+
+.select {
+  width: 100%;
+  font-weight: 600;
+}

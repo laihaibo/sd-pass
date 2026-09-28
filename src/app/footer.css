@@ -1,0 +1,21 @@
+.footer {
+  border-top: 1px solid var(--hairline);
+  padding: 26px 0 34px;
+  margin-top: 20px;
+}
+
+.footer p {
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.footer p.muted {
+  margin-top: 4px;
+  color: var(--ink-3);
+}
+
+@media (max-width: 720px) {
+  .footer {
+    padding-bottom: 120px;
+  }
+}

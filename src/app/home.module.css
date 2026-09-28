@@ -1,0 +1,126 @@
+/* ---------- Hero ---------- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+  flex-wrap: wrap;
+  padding: 44px 40px;
+  overflow: hidden;
+}
+
+.hero::after {
+  /* 顶部镜面反光，强化玻璃质感 */
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.32), transparent 32%);
+  pointer-events: none;
+}
+
+[data-theme='dark'] .hero::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent 30%);
+}
+
+.heroLeft {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  z-index: 1;
+}
+
+.heroTitle {
+  font-size: clamp(38px, 6vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 16px 0 14px;
+}
+
+.heroAccent {
+  background: linear-gradient(100deg, var(--blue), var(--teal) 60%, var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.heroSub {
+  color: var(--ink-2);
+  font-size: 16.5px;
+  max-width: 480px;
+}
+
+.cta {
+  margin-top: 24px;
+}
+
+.heroRight {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- 模块卡 ---------- */
+
+.module {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--ink);
+}
+
+.moduleIcon {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.module:hover .moduleIcon {
+  transform: scale(1.08);
+}
+
+.tint-blue { background: var(--blue-soft); color: var(--blue); }
+.tint-purple { background: var(--purple-soft); color: var(--purple); }
+.tint-orange { background: var(--orange-soft); color: var(--orange); }
+.tint-green { background: var(--green-soft); color: var(--green); }
+
+.moduleBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.moduleTitle {
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.moduleDesc {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+.moduleChevron {
+  color: var(--ink-3);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.2s;
+}
+
+.module:hover .moduleChevron {
+  transform: translateX(4px);
+  color: var(--blue);
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding: 32px 24px;
+  }
+}
